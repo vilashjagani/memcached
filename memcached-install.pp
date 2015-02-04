@@ -28,7 +28,9 @@ exec {"memcached-install":
                   mkdir -p /usrdata/memcached/oiddir";
                  chown -R postgres:postgres /usrdata/memcached;
                  echo \"DAEMON_ARGS="-m 28672 -p 11211 -U 11211 -c 8192 -u postgres -P /usrdata/memcached/memcachedrep.pid -d -v -t 32 -x 192.168.59.51"\" > /etc/default/memcachedrep;,
-                 echo \"### -x IP-address is replication server of memcached###\" >> /etc/default/memcachedrep;,
+                 echo \"### -x IP-address is replication server of memcached###\" >> /etc/default/memcachedrep;
+                 wget -e use_proxy=yes -e https_proxy=10.135.80.164:8678 -O /etc/init.d/memcachedrep https://github.com/vilashjagani/memcached/blob/master/memcachedrep;
+                 chmod 755 /etc/init.d/memcachedrep;,
       path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
      } ->
 exec {"memcached-config":

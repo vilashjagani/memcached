@@ -1,1 +1,1 @@
-#### memcached instalation ###
+#### memcached installation ###
