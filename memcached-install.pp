@@ -14,8 +14,7 @@ package {[ "build-essential",
                   managehome => true,
                   home => '/usrdata/pgsql',
                   shell => '/bin/bash',
-                  password => '$1$cjvVjeZF$D3cgBF3e2gBFTGxZW8F440',
-                 } ->
+       } ->
 user {"jersey":
             ensure => "present",
             managehome => true,
