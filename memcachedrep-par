@@ -1,2 +1,2 @@
-DAEMON_ARGS="-m 28672 -p 11211 -U 11211 -c 8192 -u postgres -P /usrdata/memcached/memcachedrep.pid -d -v -t 32 -x 192.168.59.51"
+DAEMON_ARGS="-m 28672 -p 11211 -U 11211 -c 8192 -u postgres -P /usrdata/memcached/memcachedrep.pid -d -v -t 32 -x 4.2.2.2"
 ### -x IP-address is replication server of memcached###
