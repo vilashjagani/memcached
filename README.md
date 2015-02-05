@@ -1,22 +1,36 @@
 #### memcached installation ##
-Download memcahed-install.pp from 
-https://github.com/vilashjagani/memcached/raw/master/memcached-install.pp
 
 
-install puppet on your server
-wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
-dpkg -i puppetlabs-release-trusty.deb
-apt-get install puppet
 
+1) install puppet Agent on server
 
-set proxy in /etc/puppet/puppet.conf file
-http_proxy_host = x.x.x.x
-http_proxy_port = port-number
-https_proxy_host = x.x.x.
-https_proxy_port = port-number
+  wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
 
-make sure /usrdata mount point is available or create mkdir /userdata
+  dpkg -i puppetlabs-release-trusty.deb
 
-apply memcahced puppet menifest
+  apt-get install puppet
+  Add Proxy setting in puppet
+  vi /etc/puppet/puppet.conf
 
-puppet apply memcached-install.pp
+ http_proxy_host = x.x.x.x
+
+ http_proxy_port = port-number 
+
+ https_proxy_host = x.x.x.x
+
+ https_proxy_port = port-number
+
+2) Install memcached on server
+
+       make sure /usrdata mount point is available or create mkdir /userdata
+
+       Download memcahed-install.pp from 
+         https://github.com/vilashjagani/memcached/raw/master/memcached-install.pp
+
+       apply memcahced puppet menifest
+
+       puppet apply memcached-install.pp
+       
+      change IP address of replication server of memcached in /etc/defaults/memcachedrep
+3)  start memcached service
+      /etc/init.d/memcachedrep start
